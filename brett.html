@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Veselka" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,600italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+	<style type="text/css">
+	
+    </style>
+	<script src="js/modernizr.custom.js"></script>
+	<script src="js/classie.js"></script>
+	<script src="js/cbpAnimatedHeader.min.js"></script>
+	<title>Brett Mueller</title>
+	<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+    </script>
+</head>
+<body>
+	<div class="cbp-af-header">
+	     <a href="index.html"><div class="cbp-af-inner">
+	        <h1><img src"../img/logo.png"></h1>
+	        <a href="#" id="pull"></a> 
+	    </div>
+	</div>
+	<div id="welcome" class="wrap"></div>
+	<a name="about-link" class="anchor">&nbsp;</a>
+	<div id="about-title">
+		<div class="wraptitle">
+			<div class="js-background-1 test">
+				<h1>Brett Mueller</h1>
+			</div>
+		</div>
+	</div>
+	<div id="bio" class="wrap" align="center">
+       	<a href="brett.html" ><img class="right" src="img/brett.jpg" onmouseover="this.src='img/brett_rollover.jpg'" onmouseout="this.src='img/brett.jpg'"/></a>
+	<p><strong>Audio Engineer:</strong> Brett is currently majoring in Media Informatics and minoring in Business Administration. In his spare time, he enjoys producing music, reading up on technological news, and playing video games.  He is currently a Media Specialist at The Center for Applied Informatics, and is set to graduate from NKU at the end of the summer session.
+ 
+    </p></div>
+    
+
+<script type="text/javascript">
+	$(function() {  
+	    var pull        = $('#pull');  
+	        menu        = $('nav a');  
+	        // menuHeight  = menu.height();  
+	  
+	    $(pull).on('click', function(e) {  
+	        e.preventDefault();  
+	        menu.slideToggle();  
+	    }); 
+
+	}); 
+	$(window).resize(function(){  
+	    var w = $(window).width();  
+	    if(w > 320 && menu.is(':hidden')) {  
+	        menu.removeAttr('style');  
+	    }  
+	});
+
+	$(document).ready(function() {
+		$('.fancybox').fancybox();
+	});
+
+	var $window = $(window);
+	var velocity = 0.5;
+
+	function update(){
+	    var pos = $window.scrollTop();
+
+	    $('.test').each(function() {
+	        var $element = $(this);
+	        var height = $element.height();
+
+	        $(this).css('backgroundPosition', '10% ' + Math.round((height - pos) * velocity) + 'px');
+	    });
+	};
+
+	$window.bind('scroll', update);
+
+
+	var cbpAnimatedHeader = (function() {
+ 
+    var docElem = document.documentElement,
+        header = document.querySelector( '.cbp-af-header' ),
+        didScroll = false,
+        changeHeaderOn = 100;
+ 
+    function init() {
+        window.addEventListener( 'scroll', function( event ) {
+            if( !didScroll ) {
+                didScroll = true;
+                setTimeout( scrollPage, 250 );
+            }
+        }, false );
+    }
+ 
+    function scrollPage() {
+        var sy = scrollY();
+        if ( sy >= changeHeaderOn ) {
+            classie.add( header, 'cbp-af-header-shrink' );
+        }
+        else {
+            classie.remove( header, 'cbp-af-header-shrink' );
+        }
+        didScroll = false;
+    }
+ 
+    function scrollY() {
+        return window.pageYOffset || docElem.scrollTop;
+    }
+ 
+    init();
+ 
+})();
+</script>
+</body>
+<div id="footer"  align="center">&copy; Fateful Games</div>
+</html>
